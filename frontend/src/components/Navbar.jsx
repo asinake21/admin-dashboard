@@ -10,7 +10,7 @@ function Navbar() {
   const [admin, setAdmin] = useState(null);
   const [notifications, setNotifications] = useState([]);
   const [unreadCount, setUnreadCount] = useState(0);
-  
+
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
   const [showNotificationDropdown, setShowNotificationDropdown] = useState(false);
 
@@ -106,9 +106,9 @@ function Navbar() {
         {isBlogsPage && (
           <div className="search-box">
             <Search size={18} />
-            <input 
-              type="text" 
-              placeholder="Search..." 
+            <input
+              type="text"
+              placeholder="Search..."
               value={searchQuery}
               onChange={handleSearchChange}
             />
@@ -117,8 +117,8 @@ function Navbar() {
 
         {/* Notifications Icon Button */}
         <div className="nav-item-wrapper" ref={notificationRef}>
-          <button 
-            className="icon-button" 
+          <button
+            className="icon-button"
             onClick={() => {
               setShowNotificationDropdown(!showNotificationDropdown);
               setShowProfileDropdown(false);
@@ -138,8 +138,8 @@ function Navbar() {
               <div className="dropdown-list">
                 {notifications.length > 0 ? (
                   notifications.slice(0, 5).map(item => (
-                    <div 
-                      key={item.id} 
+                    <div
+                      key={item.id}
                       className="dropdown-item-notification"
                       onClick={() => {
                         setShowNotificationDropdown(false);
@@ -148,7 +148,7 @@ function Navbar() {
                     >
                       <div className="notification-title">
                         <span>{item.name}</span>
-                        <button 
+                        <button
                           onClick={(e) => handleMarkAsRead(item.id, e)}
                           title="Mark as read"
                           style={{
@@ -185,7 +185,7 @@ function Navbar() {
 
         {/* Profile Dropdown */}
         <div className="nav-item-wrapper" ref={profileRef}>
-          <div 
+          <div
             className="profile-box profile-trigger"
             onClick={() => {
               setShowProfileDropdown(!showProfileDropdown);
@@ -205,8 +205,8 @@ function Navbar() {
                   {admin?.role || 'admin'}
                 </span>
               </div>
-              
-              <button 
+
+              <button
                 className="dropdown-action-btn"
                 onClick={() => {
                   setShowProfileDropdown(false);
@@ -217,7 +217,7 @@ function Navbar() {
                 Manage Admins
               </button>
 
-              <button 
+              <button
                 className="dropdown-action-btn logout"
                 onClick={handleLogout}
               >
