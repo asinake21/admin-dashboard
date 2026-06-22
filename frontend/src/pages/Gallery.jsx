@@ -13,7 +13,7 @@ function Gallery() {
 
   const fetchGallery = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/gallery');
+      const response = await axios.get('https://admin-dashboard-0g5e.onrender.com/api/gallery');
       setGalleryItems(response.data);
     } catch (error) {
       console.log('Failed to fetch gallery:', error);
@@ -52,7 +52,7 @@ function Gallery() {
       submitData.append('uploaded_by', admin?.id);
       submitData.append('imageFile', imageFile);
 
-      await axios.post('http://localhost:5000/api/gallery', submitData, {
+      await axios.post('https://admin-dashboard-0g5e.onrender.com/api/gallery', submitData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
 
@@ -71,7 +71,7 @@ function Gallery() {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this image?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/gallery/${id}`);
+      await axios.delete(`https://admin-dashboard-0g5e.onrender.com/api/gallery/${id}`);
       fetchGallery();
     } catch (error) {
       console.log('Failed to delete gallery item:', error);

@@ -16,7 +16,7 @@ function Resources() {
 
   const fetchResources = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/resources');
+      const response = await axios.get('https://admin-dashboard-0g5e.onrender.com/api/resources');
       setResources(response.data);
     } catch (error) {
       console.log('Failed to fetch resources:', error);
@@ -64,11 +64,11 @@ function Resources() {
       }
 
       if (editingId) {
-        await axios.put(`http://localhost:5000/api/resources/${editingId}`, data, {
+        await axios.put(`https://admin-dashboard-0g5e.onrender.com/api/resources/${editingId}`, data, {
           headers: { 'Content-Type': 'multipart/form-data' }
         });
       } else {
-        await axios.post('http://localhost:5000/api/resources', data, {
+        await axios.post('https://admin-dashboard-0g5e.onrender.com/api/resources', data, {
           headers: { 'Content-Type': 'multipart/form-data' }
         });
       }
@@ -87,7 +87,7 @@ function Resources() {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this resource?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/resources/${id}`);
+      await axios.delete(`https://admin-dashboard-0g5e.onrender.com/api/resources/${id}`);
       fetchResources();
     } catch (error) {
       console.log('Failed to delete resource:', error);

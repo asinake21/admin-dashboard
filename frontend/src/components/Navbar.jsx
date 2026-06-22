@@ -46,7 +46,7 @@ function Navbar() {
   // Fetch contact messages for notification count and preview
   const fetchNotifications = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/contacts');
+      const response = await axios.get('https://admin-dashboard-0g5e.onrender.com/api/contacts');
       // Set recent unread messages
       const allContacts = response.data || [];
       const unread = allContacts.filter(c => c.status === 'unread');
@@ -88,7 +88,7 @@ function Navbar() {
     e.preventDefault();
     e.stopPropagation();
     try {
-      await axios.patch(`http://localhost:5000/api/contacts/${id}/read`);
+      await axios.patch(`https://admin-dashboard-0g5e.onrender.com/api/contacts/${id}/read`);
       fetchNotifications();
     } catch (error) {
       console.log('Failed to update contact:', error);
